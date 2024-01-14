@@ -1,4 +1,9 @@
-require("notify").setup({
-	timeout = 2000,
-	background_colour = "#000000",
-})
+return {
+	"rcarriga/nvim-notify",
+	event = "VeryLazy",
+	opts = {
+		timeout = 2000,
+		top_down = false,
+		render = "compact",
+	},
+}

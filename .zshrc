@@ -25,5 +25,6 @@ alias sus='systemctl suspend'
 alias lsi='exa --icons --long'
 
 alias sz='source $HOME/.zshrc'
+alias settings="XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 
 source $ZSH/oh-my-zsh.sh

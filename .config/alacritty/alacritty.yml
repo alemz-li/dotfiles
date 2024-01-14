@@ -10,7 +10,8 @@ import:
   # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
   # - ~/.config/alacritty/carbonfon/carbonfox.yml
   # - ~/.config/alacritty/nord/nord.yml
-  - ~/.config/alacritty/blood-moon/blood-moon.yml
+  # - ~/.config/alacritty/blood-moon/blood-moon.yml
+  - ~/.config/alacritty/custom/colors.yml
 env:
   # TERM variable
   #
@@ -46,9 +47,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  padding:
-    x: 4
-    y: 4
+  # padding:
+  #   x: 4
+  #   y: 4
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -104,7 +105,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: "JetBrainsMono Nerd Font"
+    family: "Terminess Nerd Font"
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -115,7 +116,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "JetBrainsMono Nerd Font"
+    family: "Terminess Nerd Font"
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -126,7 +127,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "JetBrainsMono Nerd Font"
+    family: "Terminess Nerd Font"
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -149,8 +150,7 @@ font:
 
   # Thin stroke font rendering (macOS only)
   #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`
+  # Thin strokes are suitable for retina displays, but for non-retina screens it is recommended to set `use_thin_strokes` to `false`
   #
   # macOS >= 10.14.x:
   #

@@ -439,7 +439,13 @@ globalkeys = gears.table.join(
 	-- Menubar
 	awful.key({ modkey }, "p", function()
 		menubar.show()
-	end, { description = "show the menubar", group = "launcher" })
+	end, { description = "show the menubar", group = "launcher" }),
+	awful.key({ modkey }, "F1", function()
+		awful.spawn.with_shell("~/.dotfiles/scripts/laptopscreen.sh")
+	end, { description = "Run laptopscreen.sh", group = "custom" }),
+	awful.key({ modkey }, "F2", function()
+		awful.spawn.with_shell("~/.dotfiles/scripts/ultrawide.sh")
+	end, { description = "Run ultrawide.sh", group = "custom" })
 )
 
 clientkeys = gears.table.join(

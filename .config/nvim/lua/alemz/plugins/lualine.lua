@@ -1,14 +1,10 @@
-local status, lualine = pcall(require, "lualine")
-if not status then
-	return
-end
-
--- configure lualine with modified theme
-lualine.setup({
-	options = {
-		theme = "catppuccin",
-	},
-	sections = {
-		lualine_c = { "filename" },
-	},
-})
+return {
+	"nvim-lualine/lualine.nvim",
+	config = function()
+		require("lualine").setup({
+			options = {
+				theme = "catppuccin",
+			},
+		})
+	end,
+}
