@@ -141,7 +141,7 @@ local batwidget = lain.widget.bat({
 local memwidget = lain.widget.mem({
 	settings = function()
 		local used_gb = mem_now.used / 1024 -- Convert from MB to GB
-		widget:set_markup(string.format(" : %.2f/16GB | ", used_gb))
+		widget:set_markup(string.format(" : %.2f | ", used_gb))
 	end,
 })
 
