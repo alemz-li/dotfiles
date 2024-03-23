@@ -16,6 +16,7 @@ alias vim="nvim"
 alias neofetch="neofetch --ascii_distro fedora_small"
 alias cava="TERM=st-256color cava"
 alias r='ranger'
+alias lg="lazygit"
 
 # power options
 alias off='poweroff'
