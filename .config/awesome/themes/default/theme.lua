@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = "JetBrainsMono Nerd Font 8"
+theme.font = "JetBrainsMono Nerd Font 10"
 
 theme.bg_normal = "#000000"
 theme.bg_focus = "#0d0d0d"
@@ -121,5 +121,3 @@ theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.fg_focus
 theme.icon_theme = nil
 
 return theme
-
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
