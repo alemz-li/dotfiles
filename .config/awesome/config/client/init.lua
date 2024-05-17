@@ -1,24 +1,7 @@
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
-pcall(require, "luarocks.loader")
-local awful = require("awful")
 local gears = require("gears")
+local awful = require("awful")
 local beautiful = require("beautiful")
-require("awful.autofocus")
-
-local vars = require("vars")
-
-terminal = vars.terminal
-editor = vars.editor
-editor_cmd = vars.editor_cmd
-
-modkey = vars.modkey
-
-require("config")
-
-require("ui")
-
-require("bindings")
+local modkey = require("vars").modkey
 
 clientkeys = gears.table.join(
 	awful.key({ modkey }, "f", function(c)
@@ -187,5 +170,3 @@ awful.rules.rules = {
 	-- { rule = { class = "Firefox" },
 	--   properties = { screen = 1, tag = "2" } },
 }
-
-awful.spawn.with_shell("~/.config/awesome/autostart.sh")
