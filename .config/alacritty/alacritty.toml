@@ -1,5 +1,5 @@
-# import = ["/home/alemz/.config/alacritty/custom/colors.toml"]
-import = ["/home/alemz/.config/alacritty/blood-moon/bloodmoon.toml"]
+import = ["/home/alemz/.config/alacritty/custom/colors.toml"]
+# import = ["/home/alemz/.config/alacritty/blood-moon/bloodmoon.toml"]
 live_config_reload = true
 
 [colors]
