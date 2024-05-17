@@ -573,6 +573,8 @@ program = "/usr/bin/zsh"
 decorations = "full"
 dynamic_padding = false
 opacity = 1
+padding = { x = 40, y = 30 }  # Horizontal and vertical padding
+
 
 [window.dimensions]
 columns = 100

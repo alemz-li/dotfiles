@@ -1,16 +1,16 @@
 [colors]
 # True black background
-primary.background = "0x000000"
-primary.foreground = "0x7a828e"
+primary.background = "0x0f0f0f"
+primary.foreground = "0x94989E"
 
 # Cursor color
-cursor.text = "0x7a828e"
+cursor.text = "0x94989E"
 cursor.cursor = "0xffffff"
 
 # True colors
 normal.black = "0x000000"
 normal.red = "0xb30000"
-normal.green = "0x26cd4d"
+normal.green = "0x21ac41"
 normal.yellow = "0xf0b72f"
 normal.blue = "0x71b7ff"
 normal.magenta = "0xcb9eff"
