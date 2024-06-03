@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "alemz.plugins" }, { import = "alemz.plugins.lsp" } }, {
 	install = {
-		colorscheme = { "catppuccin" },
+		colorscheme = { "moonfly" },
 	},
 	checker = {
 		enabled = true,

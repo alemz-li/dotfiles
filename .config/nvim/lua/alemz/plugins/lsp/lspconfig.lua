@@ -99,6 +99,12 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- configure prisma orm server
+		lspconfig["astro"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- configure emmet language server
 		lspconfig["emmet_ls"].setup({
 			capabilities = capabilities,
