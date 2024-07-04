@@ -86,13 +86,13 @@ globalkeys = gears.table.join(
 	end, { description = "restore minimized", group = "client" }),
 	-- Volume Keys
 	awful.key({}, "XF86AudioLowerVolume", function()
-		awful.util.spawn("amixer set Master 5%-", false)
+		awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%", false)
 	end),
 	awful.key({}, "XF86AudioRaiseVolume", function()
-		awful.util.spawn("amixer set Master 5%+", false)
+		awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%", false)
 	end),
 	awful.key({}, "XF86AudioMute", function()
-		awful.util.spawn("amixer set Master 1+ toggle", false)
+		awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false)
 	end),
 
 	-- Media Keys
