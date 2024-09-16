@@ -7,7 +7,6 @@ return {
 		local eslint_d = lint.linters.eslint_d
 
 		eslint_d.args = {
-			"--no-ignore",
 			"--format",
 			"json",
 			"--stdin",
