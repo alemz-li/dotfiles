@@ -1,4 +1,4 @@
 #!/bin/bash
 
-~/.screenlayout/uw.sh &&
+~/.screenlayout/ultrawide.sh &&
 nitrogen --restore
