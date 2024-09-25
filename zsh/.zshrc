@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/alemz/.zsh/completions:"* ]]; then export FPATH="/home/alemz/.zsh/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -101,3 +103,4 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+. "/home/alemz/.deno/env"
