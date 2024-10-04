@@ -79,10 +79,11 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Aliases
 alias ls='exa --icons --long'
 alias vim='nvim'
+alias v='nvim'
 alias c='clear'
 alias neofetch="neofetch --ascii_distro fedora_small"
 alias cava="TERM=st-256color cava"
-alias r='ranger'
+# alias r='ranger'
 alias lg="lazygit"
 
 # power options
