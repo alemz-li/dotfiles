@@ -55,6 +55,7 @@ zinit cdreplay -q
 
 # Keybindings
 bindkey -e
+bindkey -v
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 # bindkey '^[w' kill-region
@@ -85,6 +86,7 @@ alias neofetch="neofetch --ascii_distro fedora_small"
 alias cava="TERM=st-256color cava"
 # alias r='ranger'
 alias lg="lazygit"
+alias pass=" pass"
 
 # power options
 alias off='poweroff'

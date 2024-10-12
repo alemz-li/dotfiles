@@ -8,3 +8,4 @@ run() {
 
 picom &
 nitrogen --restore &
+/usr/bin/lxpolkit
