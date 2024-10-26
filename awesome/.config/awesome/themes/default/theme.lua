@@ -11,9 +11,9 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = "JetBrainsMono Nerd Font 10"
+theme.font = "RobotoMono Nerd Font 10"
 
-theme.bg_normal = "#00000000"
+theme.bg_normal = "#000000"
 theme.bg_focus = "#0d0d0d"
 theme.bg_urgent = "#fa6e66"
 theme.bg_minimize = "#444444"
@@ -49,7 +49,7 @@ theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
 -- Variables set for theming notifications:
--- notification_font
+theme.notification_font = "RobotoMono Nerd Font 12"
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
