@@ -13,6 +13,7 @@ return {
 		local cmp = require("cmp")
 
 		local luasnip = require("luasnip")
+		luasnip.filetype_extend("javascript", { "html" })
 
 		local lspkind = require("lspkind")
 

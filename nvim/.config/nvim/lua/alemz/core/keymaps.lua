@@ -32,3 +32,7 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 keymap.set("n", "<S-l>", ":bnext<CR>", { silent = true })
 keymap.set("n", "<S-h>", ":bprevious<CR>", { silent = true })
 keymap.set("n", "<S-x>", ":bd<CR>", { silent = true })
+
+-- Map Ctrl + j and Ctrl + k to navigate completion suggestions in command-line mode
+keymap.set("c", "<C-j>", "<C-n>", { noremap = true })
+keymap.set("c", "<C-k>", "<C-p>", { noremap = true })

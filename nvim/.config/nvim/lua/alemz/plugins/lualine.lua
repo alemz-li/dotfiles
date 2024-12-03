@@ -5,6 +5,15 @@ return {
 			options = {
 				theme = "moonfly",
 			},
+			sections = {
+				lualine_b = {
+					"diff",
+					"diagnostics",
+				},
+				lualine_c = {
+					{ "filename", path = 1 },
+				},
+			},
 		})
 	end,
 }
