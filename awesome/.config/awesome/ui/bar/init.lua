@@ -88,6 +88,33 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+-- Create a text widget
+my_current_app = wibox.widget.textbox()
+
+-- Function to update the widget with the current window title
+local function update_current_app()
+	local c = client.focus
+	if c then
+		if c.class == "kitty" then
+			my_current_app.text = c.name or ""
+		else
+			my_current_app.text = c.class or ""
+		end
+	else
+		my_current_app.text = ""
+	end
+end
+
+-- Connect to the 'property::name' signal to update the widget when the window changes
+client.connect_signal("property::name", update_current_app)
+
+-- Connect to the 'focus' signal to update the widget when focus changes
+client.connect_signal("focus", update_current_app)
+client.connect_signal("unfocus", update_current_app)
+
+-- Initial update
+update_current_app()
+
 awful.screen.connect_for_each_screen(function(s)
 	-- Wallpaper
 	set_wallpaper(s)
@@ -145,18 +172,19 @@ awful.screen.connect_for_each_screen(function(s)
 		{ -- Left widgets
 			layout = wibox.layout.fixed.horizontal,
 			-- mylauncher,
-			mytextclock,
+			s.mytaglist,
 			s.mypromptbox,
 		},
 		{
 			layout = wibox.layout.fixed.horizontal,
 			-- s.mytasklist, -- Middle widget
-			s.mytaglist,
+			my_current_app,
 		},
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			-- mykeyboardlayout,
 			batwidget,
+			mytextclock,
 			alsa_widget,
 			s.mylayoutbox,
 			s.systray,

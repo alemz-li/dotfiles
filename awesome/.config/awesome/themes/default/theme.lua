@@ -14,20 +14,20 @@ local theme = {}
 theme.font = "RobotoMono Nerd Font 10"
 
 theme.bg_normal = "#000000"
-theme.bg_focus = "#0d0d0d"
-theme.bg_urgent = "#fa6e66"
+theme.bg_focus = "#e3e3e3"
+theme.bg_urgent = "#ef1414"
 theme.bg_minimize = "#444444"
 theme.bg_systray = theme.bg_normal
 
 theme.fg_normal = "#cacaca"
-theme.fg_focus = "#ffffff"
+theme.fg_focus = "#000000"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(10)
 theme.border_width = dpi(2)
 theme.border_normal = "#000000"
-theme.border_focus = "#808080"
+-- theme.border_focus = "#808080"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
