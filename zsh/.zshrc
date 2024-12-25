@@ -27,6 +27,7 @@ export TERMINAL="kitty"
 export BROWSER="firefox"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/bin/obsidian"
+export MANPAGER='nvim +Man!'
 
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
