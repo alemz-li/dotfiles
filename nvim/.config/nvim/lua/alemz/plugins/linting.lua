@@ -4,23 +4,12 @@ return {
 	event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
 	config = function()
 		local lint = require("lint")
-		local eslint_d = lint.linters.eslint_d
-
-		eslint_d.args = {
-			"--format",
-			"json",
-			"--stdin",
-			"--stdin-filename",
-			function()
-				return vim.api.nvim_buf_get_name(0)
-			end,
-		}
 
 		lint.linters_by_ft = {
-			javascript = { "eslint_d" },
-			typescript = { "eslint_d" },
-			javascriptreact = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
+			javascript = { "eslint_d", "eslint" },
+			typescript = { "eslint_d", "eslint" },
+			javascriptreact = { "eslint_d", "eslint" },
+			typescriptreact = { "eslint_d", "eslint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
