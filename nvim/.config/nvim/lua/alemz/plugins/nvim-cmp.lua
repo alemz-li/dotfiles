@@ -63,10 +63,19 @@ return {
 						buffer = "[Buffer]",
 						luasnip = "[LuaSnip]",
 					},
-					before = function(entry, vim_item) -- for tailwind css autocomplete
+
+					before = function(entry, vim_item)
 						if vim_item.kind == "Color" and entry.completion_item.documentation then
-							local _, _, r, g, b =
-								string.find(entry.completion_item.documentation, "^rgb%((%d+), (%d+), (%d+)")
+							local documentation = entry.completion_item.documentation
+
+							-- Check if documentation is a table or a string
+							if type(documentation) == "table" then
+								documentation = documentation.contents or ""
+							end
+
+							-- Now extract RGB values if documentation is a string
+							local _, _, r, g, b = string.find(documentation, "^rgb%((%d+), (%d+), (%d+)")
+
 							if r then
 								local color = string.format("%02x", r)
 									.. string.format("%02x", g)
@@ -80,8 +89,8 @@ return {
 								return vim_item
 							end
 						end
-						-- vim_item.kind = icons[vim_item.kind] and (icons[vim_item.kind] .. vim_item.kind) or vim_item.kind
-						-- or just show the icon
+
+						-- Fallback to default icon if no match is found
 						vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind)
 							or vim_item.kind
 						return vim_item
