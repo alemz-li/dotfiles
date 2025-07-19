@@ -21,7 +21,7 @@ local moonfly = {
 	normal = {
 		a = { fg = colors.color0, bg = colors.color7, gui = "bold" },
 		b = { fg = colors.color2, bg = colors.color3 },
-		c = { fg = colors.color2, bg = colors.color3 },
+		c = { fg = colors.color2, bg = colors.color0 },
 	},
 	visual = {
 		a = { fg = colors.color0, bg = colors.color8, gui = "bold" },
