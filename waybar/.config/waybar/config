@@ -26,9 +26,11 @@
     "sway/language",
     "battery",
     "battery#bat2",
+    "custom/swaync",
     "clock",
     "tray",
-    "custom/power"
+    "custom/power",
+    ""
     ],
     "hyprland/workspaces": {
       "disable-scroll": true,
@@ -195,5 +197,15 @@
       "format": "⏻",
       "tooltip": false,
       "on-click": "$HOME/.config/waybar/scripts/power_menu.sh"
+    },
+    "custom/swaync": {
+      "format": "{icon}",
+      "tooltip": false,
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -C -sw",
+      "on-click-middle": "swaync-client -c -sw",
+      "format-icons": {
+        "default": ""
+      }
     },
 }

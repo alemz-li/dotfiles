@@ -83,7 +83,7 @@ window#waybar.chromium {
 #idle_inhibitor,
 #mpd {
   padding: 0 10px;
-  margin: 6px 3px;
+  margin: 6px 5px;
   color: #000000;
 }
 
@@ -230,4 +230,8 @@ label:focus {
   padding: 0 5px;
   margin: 6px 3px;
   min-width: 16px;
+}
+
+#custom-notification {
+  font-family: "RobotoMono Nerd Font";
 }
