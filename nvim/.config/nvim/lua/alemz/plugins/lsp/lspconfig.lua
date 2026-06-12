@@ -64,11 +64,39 @@ return {
 		})
 
 		-- Set up signs
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
+		-- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+		-- for type, icon in pairs(signs) do
+		-- 	local hl = "DiagnosticSign" .. type
+		-- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+		-- end
+
+		-- NOTE: Diagnostic Setup
+		-- Define sign icons for each severity
+		local signs = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = "󰠠 ",
+			[vim.diagnostic.severity.INFO] = " ",
+		}
+		-- update diagnostic config function
+		vim.diagnostic.config({
+			signs = { text = signs },
+			virtual_text = true,
+			underline = true,
+			update_in_insert = false,
+			float = {
+				focusable = false,
+				style = "minimal",
+				border = "rounded",
+				source = true,
+			},
+		})
+
+		-- toggle for virtual text
+		vim.keymap.set("n", "<leader>lx", function()
+			local current = vim.diagnostic.config().virtual_text
+			vim.diagnostic.config({ virtual_text = not current })
+		end, { desc = "Toggle LSP virtual text" })
 
 		-- Load blink.cmp and get capabilities
 		local blink = require("blink.cmp")

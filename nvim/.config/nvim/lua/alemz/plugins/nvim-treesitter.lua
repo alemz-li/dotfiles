@@ -1,79 +1,80 @@
 return {
+	-- NOTE: treesitter CLI installation needed
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPre", "BufNewFile" },
+		branch = "main",
+		lazy = false,
 		build = ":TSUpdate",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"windwp/nvim-ts-autotag",
-		},
 		config = function()
-			-- import nvim-treesitter plugin
-			local treesitter = require("nvim-treesitter.configs")
+			local treesitter = require("nvim-treesitter")
 
-			-- configure treesitter
-			treesitter.setup({ -- enable syntax highlighting
-				highlight = {
-					enable = true,
-				},
-				-- enable indentation
-				indent = { enable = true },
-				-- ensure these language parsers are installed
-				ensure_installed = {
-					"astro",
-					"json",
-					"javascript",
-					"typescript",
-					"tsx",
-					"yaml",
-					"html",
-					"css",
-					"prisma",
-					"markdown",
-					"markdown_inline",
-					"svelte",
-					"bash",
-					"lua",
-					"vim",
-					"gitignore",
-					"sql",
-				},
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "<C-space>",
-						node_incremental = "<C-space>",
-						scope_incremental = false,
-						node_decremental = "<bs>",
-					},
-				},
+			local ensure_installed = {
+				"astro",
+				"json",
+				"javascript",
+				"typescript",
+				"tsx",
+				"yaml",
+				"html",
+				"css",
+				"prisma",
+				"markdown",
+				"markdown_inline",
+				"svelte",
+				"bash",
+				"lua",
+				"vim",
+				"gitignore",
+				"sql",
+			}
+
+			treesitter.install(ensure_installed)
+
+			-- Safe FileType autocmd for highlighting + indentation
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "*",
+				callback = function(args)
+					local buf = args.buf
+					local ft = vim.bo[buf].filetype
+
+					local lang = vim.treesitter.language.get_lang(ft)
+					if not lang then
+						return
+					end
+
+					-- start treesitter safely
+					pcall(vim.treesitter.start, buf, lang)
+
+					-- enable indentation (skip yaml/markdown)
+					if ft ~= "yaml" and ft ~= "markdown" then
+						vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+						vim.bo[buf].smartindent = false
+						vim.bo[buf].cindent = false
+					end
+				end,
 			})
-
-			-- Enable autotag for specific filetypes
-			-- require("nvim-ts-autotag").setup({
-			-- 	filetypes = { "html", "typescript", "tsx", "astro" },
-			-- })
 		end,
 	},
-
+	-- NOTE: js,ts,jsx,tsx Auto Close Tags
 	{
 		"windwp/nvim-ts-autotag",
-		event = "BufReadPre",
+		enabled = true,
+		ft = { "html", "xml", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
 		config = function()
 			require("nvim-ts-autotag").setup({
 				opts = {
-					enable_close = false, -- Auto close tags
-					enable_rename = true, -- Auto rename pairs of tags
-					enable_close_on_slash = true, -- Auto close on trailing </
+					enable_close = true, -- Auto-close tags
+					enable_rename = true, -- Auto-rename pairs
+					enable_close_on_slash = false, -- Disable auto-close on trailing `</`
 				},
-				-- Also override individual filetype configs, these take priority.
-				-- Empty by default, useful if one of the "opts" global settings
-				-- doesn't work well in a specific filetype
-				--[[ per_filetype = {
-	           ["html"] = {
-	             enable_close = false
-	           }
-	         } ]]
+				per_filetype = {
+					["html"] = {
+						enable_close = true,
+					},
+					["typescriptreact"] = {
+						enable_close = true,
+					},
+				},
 			})
 		end,
 	},
